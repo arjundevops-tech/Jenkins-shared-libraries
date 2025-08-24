@@ -4,7 +4,7 @@ def call(Map config = [:]) {
     def scanPath   = config.scanPath ?: '.'
 
     sh """
-        trivy fs --format ${format} --output ${outputFile} ${scanPath}
+       trivy fs --scanners vuln  --format ${format} --output ${outputFile} ${scanPath}"
     """
 
     archiveArtifacts artifacts: outputFile, fingerprint: true
