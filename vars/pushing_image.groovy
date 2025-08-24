@@ -1,5 +1,5 @@
 def call(Map config = [:]) {
-    def imageName    = config.imageName ?: 'myorg/myapp'
+    def imageName    = config.imageName
     if(config.imageName) {
       def credentialsId = config.credentialsId ?: 'dockerhub-creds'
   
