@@ -4,7 +4,6 @@ def call(Map config = [:]) {
     def scanPath   = config.scanPath ?: '.'
 
     sh """
-       mvn dependency:copy-dependencies
        trivy fs --scanners vuln  --format ${format} --output ${outputFile} ${scanPath}
     """
 
