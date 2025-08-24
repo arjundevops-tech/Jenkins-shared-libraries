@@ -1,10 +1,10 @@
 def call(Map config = [:]) {
-    def scanPath   = config.scanPath ?: '.'
+    def imageName   = config.imageName ?: '.'
     def format     = config.format ?: 'json'
     def outputFile = config.outputFile ?: 'trivy-fs-report.json'
 
     sh """
-        trivy fs --format ${format} --output ${outputFile} ${scanPath}
+        trivy image -f ${format} -o ${outputFile} ${imageName}:${env.IMAGE_TAG}
     """
 
     archiveArtifacts artifacts: outputFile, fingerprint: true
