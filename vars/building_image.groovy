@@ -1,5 +1,6 @@
 def call(Map config = [:]) {
     if(config.imageName) {
+        def imageName = config.imageName 
         def dockerfile  = config.dockerfile ?: 'Dockerfile'
         def buildContext = config.buildContext ?: '.'
     
