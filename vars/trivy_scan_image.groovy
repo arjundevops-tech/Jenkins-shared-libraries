@@ -1,5 +1,5 @@
 def call(Map config = [:]) {
-    def imageName   = config.imageName ?: '.'
+    def imageName   = config.imageName
     def format     = config.format ?: 'json'
     def outputFile = config.outputFile ?: 'trivy-image-scan-report.json'
 
