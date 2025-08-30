@@ -4,6 +4,9 @@ def call (Map config = [:]){
   def container_name = config.container_name
   def image_name = config.image_name
   if(inboudPort_number != null &&  outboundPort_number != null && container_name != null &&  image_name != null) {
+      timeout(time: 5, unit: 'MINUTES') {
+        input message: 'Do you approve this deployment?', ok: 'Yes, proceed'
+      }
       sh "docker stop ${container_name} || true"
       sh "docker rm ${container_name} || true"
       println("############## STARTED APPLICATION DEPLOYMENT #################")
