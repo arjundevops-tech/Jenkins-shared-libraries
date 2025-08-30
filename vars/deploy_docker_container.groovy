@@ -10,7 +10,7 @@ def call (Map config = [:]){
       sh "docker stop ${container_name} || true"
       sh "docker rm ${container_name} || true"
       println("############## STARTED APPLICATION DEPLOYMENT #################")
-      sh "docker run -itd --name ${container_name} -p ${inboudPort_number}:${outboundPort_number} ${image_name}"
+      sh "docker run -itd --name ${container_name} -p ${inboudPort_number}:${outboundPort_number} ${image_name}:${env.IMAGE_TAG}"
       println("############## COMPLETED DEPLOYMENT SUCCESSFULLY #################")
   } else {
     error("Missing one of the parameters of inboudPort_number, outboundPort_number, container_name, image_name")
