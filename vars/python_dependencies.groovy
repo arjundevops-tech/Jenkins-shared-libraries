@@ -1,4 +1,4 @@
-def call () {
+/*def call () {
   def file = new File("requirements.txt")
   if (file.exists()) {
     println "requirements.txt exists"
@@ -6,5 +6,8 @@ def call () {
  } else {
    error("requirements.txt does not exist")
   }
+}*/
+def call () {
+  sh "pip install -r requirements.txt"
 }
 
